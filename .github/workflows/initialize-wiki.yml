@@ -26,70 +26,45 @@ jobs:
           fetch-depth: 0
 
       - name: Initialize wiki repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -x
           
-          echo "=== Initializing Wiki Repository ==="
-          echo "Main repo: ${{ github.repository }}"
-          echo "Wiki repo: ${{ github.repository }}.wiki"
-          echo ""
+          # Configure git globally
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           
-          # Clone the wiki repository directly
-          echo "Cloning wiki repository..."
-          git clone https://github.com/${{ github.repository }}.wiki.git wiki-repo-init
+          echo "=== Initializing Wiki Repository ==="
+          
+          # Clone wiki repo using token authentication  
+          git clone https://${{ github.actor }}:${GITHUB_TOKEN}@github.com/${{ github.repository }}.wiki.git wiki-repo-init
           
           cd wiki-repo-init
           
-          # Configure git
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          echo "Wiki repo remote:"
+          git remote -v
+          echo ""
           
-          # Remove all existing wiki content
-          echo "Clearing all existing wiki content..."
-          find . -mindepth 1 -not -name '.git' -type f -delete
-          find . -mindepth 1 -not -name '.git' -type d -exec rm -rf {} + 2>/dev/null || true
+          # Clear old content
+          find . -mindepth 1 -not -name '.git' -delete
           
-          # Copy fresh content from wiki-default
-          echo "Copying fresh wiki-default content..."
+          # Copy new content
           cp -r ../wiki-default/* .
           
-          # List what we copied
-          echo "Files ready for push:"
-          ls -la
-          echo ""
-          
-          # Check git status
-          echo "Git status:"
-          git status
-          echo ""
-          
-          # Add and commit
-          echo "Staging changes..."
-          git add -A
-          
+          # Commit and push
           if git status --short | grep -q .; then
-            echo "Creating initial commit..."
+            git add -A
             git commit -m "Initialize wiki from main repo - ${{ github.sha }}"
             
-            # Get the default branch
-            echo "Detecting default branch..."
-            DEFAULT_BRANCH=$(git rev-parse --abbrev-ref origin/HEAD | sed 's@origin/@@')
-            echo "Default branch is: $DEFAULT_BRANCH"
+            # Get current branch
+            BRANCH=$(git rev-parse --abbrev-ref HEAD)
+            echo "Pushing to branch: $BRANCH"
             
-            # Checkout the default branch
-            git checkout "$DEFAULT_BRANCH" || git checkout -b "$DEFAULT_BRANCH"
-            
-            # Reset the branch to our new content
-            echo "Force-pushing wiki content to $DEFAULT_BRANCH..."
-            git merge --allow-unrelated-histories main -m "Initialize from main repo" || true
-            
-            # Alternative: force push the current state
-            echo "Pushing to wiki repository..."
-            git push origin main:$DEFAULT_BRANCH --force
-            
-            echo "✓ Wiki initialized successfully"
+            git push origin HEAD:$BRANCH --force
+            echo "✓ Wiki initialized"
           else
-            echo "✗ No wiki-default content found"
+            echo "✗ No content to initialize"
             exit 1
           fi
           
