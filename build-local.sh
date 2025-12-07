@@ -9,8 +9,8 @@ echo "Building documentation to mockup/ folder..."
 
 # Check if Jekyll is installed
 if ! command -v jekyll &> /dev/null; then
-    echo "❌ Jekyll not found. Please install Jekyll:"
-    echo "   gem install jekyll bundler"
+    echo "❌ Jekyll not found."
+    echo "Please see README.md for installation instructions for your OS."
     exit 1
 fi
 
@@ -23,11 +23,15 @@ jekyll build -d ../mockup -s . --config _config.yml
 
 cd ..
 
+# Get absolute path to mockup folder
+MOCKUP_PATH="$(cd mockup && pwd)/index.html"
+
 echo ""
 echo "✓ Build complete!"
 echo ""
-echo "To view the site locally:"
-echo "  1. Open in browser: open mockup/index.html"
+echo "To view the site locally, open this URL in your browser:"
+echo "  file://${MOCKUP_PATH}"
+echo ""
 echo "  2. Or start a local server:"
 echo "     cd mockup && python3 -m http.server 8000"
 echo "     Then visit: http://localhost:8000"
