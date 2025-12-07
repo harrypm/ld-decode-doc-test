@@ -30,6 +30,17 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
+      - name: List files being deployed
+        run: |
+          echo "=== Files in wiki-default directory ==="
+          ls -laR wiki-default/
+          echo ""
+          echo "=== Checking for index files ==="
+          find wiki-default/ -name "index.*" -o -name "Home.*"
+          echo ""
+          echo "=== First 20 lines of index.md ==="
+          head -20 wiki-default/index.md || echo "index.md not found"
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
