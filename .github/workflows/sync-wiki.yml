@@ -54,6 +54,14 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
+          # Show current branch and remote
+          echo "Current branch:"
+          git branch -v
+          echo ""
+          echo "Remote:"
+          git remote -v
+          echo ""
+          
           # Check git status
           echo "Git status:"
           git status
@@ -62,7 +70,6 @@ jobs:
           # Check if there are changes
           if git status --short | grep -q .; then
             echo "Changes detected, committing..."
-            # Add all changes
             git add -A
             
             # Create commit message with reference to main repo commit
@@ -70,22 +77,22 @@ jobs:
             
             # Push to wiki repository
             echo "Pushing to wiki repository..."
-            echo "Remote info:"
-            git branch -r
-            echo ""
             
-            # GitHub wiki repositories default to master branch
-            # Use fetch to get the latest remote info
-            git fetch origin 2>&1 || true
+            # GitHub wiki repos use master as default
+            # Fetch to update remote tracking info
+            git fetch origin master 2>&1 || true
             
-            # Try to push to master (standard for GitHub wikis)
+            # Try to push to master
             if git push origin HEAD:master 2>&1; then
-              echo "✓ Pushed to master branch"
-            elif git push origin HEAD:main 2>&1; then
-              echo "✓ Pushed to main branch"
+              echo "✓ Pushed to master branch successfully"
             else
-              echo "✗ Push failed - check repository permissions"
-              exit 1
+              echo "✗ Master push failed, trying main branch..."
+              if git push origin HEAD:main 2>&1; then
+                echo "✓ Pushed to main branch successfully"
+              else
+                echo "✗ Push failed - check repository permissions"
+                exit 1
+              fi
             fi
             
             echo "✓ Wiki synchronized successfully"
