@@ -24,19 +24,19 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
       
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
       
-      - name: Build with Jekyll
+      - name: Build site with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./wiki-default
           destination: ./_site
       
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
       
       - name: Deploy to GitHub Pages
