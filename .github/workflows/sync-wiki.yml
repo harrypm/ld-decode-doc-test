@@ -27,29 +27,60 @@ jobs:
 
       - name: Sync wiki-default to wiki repository
         run: |
+          set -x  # Enable debug output
+          
+          echo "=== Starting Wiki Sync ==="
+          echo "Main repo: ${{ github.repository }}"
+          echo "Wiki repo: ${{ github.repository }}.wiki"
+          echo ""
+          
           # Remove old wiki content (except .git)
+          echo "Clearing old wiki content..."
           cd wiki-repo
           find . -mindepth 1 -not -name '.git' -delete
           
           # Copy new content from wiki-default
+          echo "Copying wiki-default content..."
           cp -r ../wiki-default/* .
           
+          # List what we copied
+          echo "Files copied:"
+          ls -la
+          echo ""
+          
           # Configure git
+          echo "Configuring git..."
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           
+          # Check git status
+          echo "Git status:"
+          git status
+          echo ""
+          
           # Check if there are changes
           if git status --short | grep -q .; then
+            echo "Changes detected, committing..."
             # Add all changes
             git add -A
             
             # Create commit message with reference to main repo commit
             git commit -m "Sync wiki from main repo - ${{ github.sha }}"
             
-            # Push to wiki repository
-            git push origin master
+            # Determine correct branch (try master first, then main)
+            echo "Pushing to wiki repository..."
+            if git rev-parse --verify master >/dev/null 2>&1; then
+              echo "Using master branch"
+              git push origin master
+            else
+              echo "Using main branch"
+              git push origin main
+            fi
             
             echo "✓ Wiki synchronized successfully"
           else
             echo "ℹ No changes to sync"
           fi
+          
+          set +x  # Disable debug output
+
