@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'wiki-default/**'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sync-wiki:
@@ -67,14 +68,24 @@ jobs:
             # Create commit message with reference to main repo commit
             git commit -m "Sync wiki from main repo - ${{ github.sha }}"
             
-            # Determine correct branch (try master first, then main)
+            # Push to wiki repository
             echo "Pushing to wiki repository..."
-            if git rev-parse --verify origin/master >/dev/null 2>&1; then
-              echo "Using master branch"
-              git push origin HEAD:master
+            echo "Remote info:"
+            git branch -r
+            echo ""
+            
+            # GitHub wiki repositories default to master branch
+            # Use fetch to get the latest remote info
+            git fetch origin 2>&1 || true
+            
+            # Try to push to master (standard for GitHub wikis)
+            if git push origin HEAD:master 2>&1; then
+              echo "✓ Pushed to master branch"
+            elif git push origin HEAD:main 2>&1; then
+              echo "✓ Pushed to main branch"
             else
-              echo "Using main branch"
-              git push origin HEAD:main
+              echo "✗ Push failed - check repository permissions"
+              exit 1
             fi
             
             echo "✓ Wiki synchronized successfully"
