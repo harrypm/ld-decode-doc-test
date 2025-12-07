@@ -27,6 +27,30 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       
+      - name: Validate navigation links
+        run: |
+          echo "Checking for external links in navigation sidebar..."
+          
+          # Check if _layouts/default.html exists
+          if [ ! -f "wiki-default/_layouts/default.html" ]; then
+            echo "Error: _layouts/default.html not found"
+            exit 1
+          fi
+          
+          # Extract all href links from the sidebar section
+          # Look for patterns like href="http or href="https that aren't relative_url
+          if grep -E 'href="https?://' wiki-default/_layouts/default.html | grep -v 'relative_url' > /dev/null; then
+            echo "❌ ERROR: External links found in navigation sidebar!"
+            echo ""
+            echo "The following external links were detected:"
+            grep -E 'href="https?://' wiki-default/_layouts/default.html | grep -v 'relative_url'
+            echo ""
+            echo "External links in the navigation are not allowed - Deployment failed"
+            exit 1
+          fi
+          
+          echo "✓ Navigation validation passed - no external links found"
+      
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
       
