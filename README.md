@@ -25,8 +25,8 @@ sudo apt update
 # Install Ruby and dependencies
 sudo apt install -y ruby-full build-essential zlib1g-dev
 
-# Install Jekyll and bundler
-sudo gem install jekyll bundler
+# Install Jekyll, bundler, and Cayman theme
+sudo gem install jekyll bundler jekyll-theme-cayman
 ```
 
 #### Testing Prerequisites - Fedora (43 and later)
@@ -35,8 +35,8 @@ sudo gem install jekyll bundler
 # Install Ruby and dependencies
 sudo dnf install -y ruby ruby-devel gcc gcc-c++ make redhat-rpm-config zlib-devel
 
-# Install Jekyll and bundler
-sudo gem install jekyll bundler
+# Install Jekyll, bundler, and Cayman theme
+sudo gem install jekyll bundler jekyll-theme-cayman
 ```
 
 ### Building the Site Locally
@@ -47,6 +47,10 @@ sudo gem install jekyll bundler
 ```
 
 This creates a `mockup/` folder with the built site ready for local testing.
+
+### Adding or Editing Documentation
+
+You can add plain Markdown files under `wiki-default/` without any front matter. The build pipeline automatically copies the files into a temporary workspace and injects minimal front matter so Jekyll will render them to HTML. Your source files stay untouched in the repository.
 
 ### Viewing the Site
 
@@ -65,6 +69,7 @@ Or use your file manager to navigate to the `mockup/` folder and double-click `i
 ### Important Notes
 
 - The `mockup/` folder is in `.gitignore` - it will never be committed
+- All `.md` files in wiki-default must have Jekyll front matter (see above)
 - Always build locally before pushing changes
 - The navigation sidebar must not contain external links (validation enforced by CI)
 - Use relative links for internal documentation pages
