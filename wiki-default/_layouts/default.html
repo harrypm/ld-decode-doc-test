@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | default: site.github.repository_name }}{% endif %}</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside class="sidebar">
+        <h2><a href="{{ '/' | relative_url }}">ld-decode</a></h2>
+        
+        <h3>Installation</h3>
+        <ul>
+          <li><a href="{{ '/Installation/Installation.html' | relative_url }}">Linux</a></li>
+          <li><a href="https://github.com/oyvindln/vhs-decode/wiki/Windows-Build">Windows</a></li>
+          <li><a href="https://github.com/oyvindln/vhs-decode/wiki/MacOS-Build">MacOS</a></li>
+        </ul>
+        
+        <h3>Hardware</h3>
+        <ul>
+          <li><a href="{{ '/Hardware/Domesday-Duplicator.html' | relative_url }}">Domesday Duplicator</a></li>
+        </ul>
+        
+        <h3>How-to Guides</h3>
+        <ul>
+          <li><a href="{{ '/How-to-guides/Basic-usage-of-ld-decode.html' | relative_url }}">Basic usage</a></li>
+          <li><a href="{{ '/How-to-guides/Creating-video-from-PAL-decodes.html' | relative_url }}">PAL decode guide</a></li>
+          <li><a href="{{ '/How-to-guides/Creating-video-from-NTSC-decodes.html' | relative_url }}">NTSC decode guide</a></li>
+          <li><a href="{{ '/How-to-guides/Working-with-multiple-discs.html' | relative_url }}">Multiple discs</a></li>
+          <li><a href="{{ '/How-to-guides/Working-with-subtitles.html' | relative_url }}">Subtitles</a></li>
+          <li><a href="{{ '/How-to-guides/Disc-images-to-download.html' | relative_url }}">Disc images</a></li>
+        </ul>
+        
+        <h3>Tools</h3>
+        <ul>
+          <li><a href="{{ '/Tools/ld-decode.html' | relative_url }}">ld-decode</a></li>
+          <li><a href="{{ '/Tools/ld-analyse.html' | relative_url }}">ld-analyse</a></li>
+          <li><a href="{{ '/Tools/ld-chroma-decoder.html' | relative_url }}">ld-chroma-decoder</a></li>
+          <li><a href="{{ '/Tools/ld-process-vbi.html' | relative_url }}">ld-process-vbi</a></li>
+          <li><a href="{{ '/Tools/ld-export-metadata.html' | relative_url }}">ld-export-metadata</a></li>
+          <li><a href="{{ '/Tools/ld-dropout-correct.html' | relative_url }}">ld-dropout-correct</a></li>
+          <li><a href="{{ '/Tools/ld-process-efm.html' | relative_url }}">ld-process-efm</a></li>
+          <li><a href="{{ '/Tools/ld-discmap.html' | relative_url }}">ld-discmap</a></li>
+          <li><a href="{{ '/Tools/ld-disc-stacker.html' | relative_url }}">ld-disc-stacker</a></li>
+          <li><a href="{{ '/Tools/ld-process-vits.html' | relative_url }}">ld-process-vits</a></li>
+          <li><a href="{{ '/Tools/ld-lds-converter.html' | relative_url }}">ld-lds-converter</a></li>
+          <li><a href="{{ '/Tools/ld-chroma-encoder.html' | relative_url }}">ld-chroma-encoder</a></li>
+          <li><a href="{{ '/Tools/efm-decoder.html' | relative_url }}">efm-decoder</a></li>
+        </ul>
+        
+        <h3>Scripts</h3>
+        <ul>
+          <li><a href="{{ '/Scripts/ld-compress.html' | relative_url }}">ld-compress</a></li>
+          <li><a href="{{ '/Scripts/ld-cut.html' | relative_url }}">ld-cut</a></li>
+          <li><a href="{{ '/Scripts/ld-ldf-reader.html' | relative_url }}">ld-ldf-reader</a></li>
+        </ul>
+        
+        <h3>Development</h3>
+        <ul>
+          <li><a href="{{ '/Development/JSON-Metadata-format.html' | relative_url }}">JSON metadata</a></li>
+          <li><a href="{{ '/Development/File-formats.html' | relative_url }}">File formats</a></li>
+          <li><a href="{{ '/Development/ld-decode-Filter-tuning-parameters.html' | relative_url }}">Filter tuning</a></li>
+        </ul>
+        
+        <h3>Support</h3>
+        <ul>
+          <li><a href="{{ '/Support/Submitting-a-bug-report.html' | relative_url }}">Bug reports</a></li>
+          <li><a href="{{ '/Support/Social-Media.html' | relative_url }}">Social Media</a></li>
+          <li><a href="{{ '/Support/ld-decode-on-the-web.html' | relative_url }}">On the web</a></li>
+          <li><a href="{{ '/Support/Donations.html' | relative_url }}">Donations</a></li>
+        </ul>
+        
+        <h3>Misc</h3>
+        <ul>
+          <li><a href="{{ '/Misc/TBC-median-stacking-guide.html' | relative_url }}">Median stacking</a></li>
+          <li><a href="{{ '/Misc/Release-Highlights.html' | relative_url }}">Release highlights</a></li>
+        </ul>
+      </aside>
+      
+      <section class="main-content">
+        {{ content }}
+      </section>
+    </div>
+    
+    <style>
+      .wrapper {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      .sidebar {
+        width: 250px;
+        min-width: 250px;
+        margin-right: 30px;
+        font-size: 14px;
+      }
+      
+      .sidebar h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      .sidebar h3 {
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      .sidebar ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 0 10px 0;
+      }
+      
+      .sidebar li {
+        margin: 5px 0;
+      }
+      
+      .sidebar a {
+        text-decoration: none;
+        color: #0366d6;
+      }
+      
+      .sidebar a:hover {
+        text-decoration: underline;
+      }
+      
+      .main-content {
+        flex: 1;
+        min-width: 0;
+      }
+      
+      @media screen and (max-width: 768px) {
+        .wrapper {
+          flex-direction: column;
+        }
+        
+        .sidebar {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </body>
+</html>

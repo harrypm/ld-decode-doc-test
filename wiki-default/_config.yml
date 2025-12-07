@@ -1,6 +1,6 @@
 title: LD-Decode Documentation
 description: Documentation for ld-decode and related tools
-theme: jekyll-theme-primer
+theme: jekyll-theme-cayman
 
 # Ensure markdown files are processed
 markdown: kramdown
@@ -19,3 +19,8 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+# Enable relative links
+relative_links:
+  enabled: true
+  collections: false

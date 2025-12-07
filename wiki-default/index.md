@@ -16,6 +16,63 @@ Please see the [Installation guide](Installation/Installation.md) for details of
 
 An overview of how a LaserDisc player functions (which can help you to understand the component parts of ld-decode) is available from [this link](https://www.domesday86.com/?page_id=1379).
 
+---
+
+## Documentation Index
+
+### Installation
+- [Linux Installation](Installation/Installation.md)
+- [Windows Build](https://github.com/oyvindln/vhs-decode/wiki/Windows-Build)
+- [MacOS Build](https://github.com/oyvindln/vhs-decode/wiki/MacOS-Build)
+
+### Hardware
+- [Domesday Duplicator](Hardware/Domesday-Duplicator.md)
+
+### How-to Guides
+- [Basic usage of ld-decode](How-to-guides/Basic-usage-of-ld-decode.md)
+- [Creating video from PAL decodes](How-to-guides/Creating-video-from-PAL-decodes.md)
+- [Creating video from NTSC decodes](How-to-guides/Creating-video-from-NTSC-decodes.md)
+- [Working with multiple discs](How-to-guides/Working-with-multiple-discs.md)
+- [Working with subtitles](How-to-guides/Working-with-subtitles.md)
+- [Disc images to download](How-to-guides/Disc-images-to-download.md)
+
+### Tools
+- [ld-decode](Tools/ld-decode.md)
+- [ld-analyse](Tools/ld-analyse.md)
+- [ld-chroma-decoder](Tools/ld-chroma-decoder.md)
+- [ld-process-vbi](Tools/ld-process-vbi.md)
+- [ld-export-metadata](Tools/ld-export-metadata.md)
+- [ld-dropout-correct](Tools/ld-dropout-correct.md)
+- [ld-process-efm](Tools/ld-process-efm.md)
+- [ld-discmap](Tools/ld-discmap.md)
+- [ld-disc-stacker](Tools/ld-disc-stacker.md)
+- [ld-process-vits](Tools/ld-process-vits.md)
+- [ld-lds-converter](Tools/ld-lds-converter.md)
+- [ld-chroma-encoder](Tools/ld-chroma-encoder.md)
+- [efm-decoder](Tools/efm-decoder.md)
+
+### Scripts
+- [ld-compress](Scripts/ld-compress.md)
+- [ld-cut](Scripts/ld-cut.md)
+- [ld-ldf-reader](Scripts/ld-ldf-reader.md)
+
+### Development
+- [JSON Metadata format](Development/JSON-Metadata-format.md)
+- [File formats](Development/File-formats.md)
+- [ld-decode Filter tuning parameters](Development/ld-decode-Filter-tuning-parameters.md)
+
+### Support
+- [Submitting a bug report](Support/Submitting-a-bug-report.md)
+- [Social Media](Support/Social-Media.md)
+- [ld-decode on the web](Support/ld-decode-on-the-web.md)
+- [Donations](Support/Donations.md)
+
+### Misc
+- [TBC median stacking guide](Misc/TBC-median-stacking-guide.md)
+- [Release Highlights](Misc/Release-Highlights.md)
+
+---
+
 
 # Current status
 
