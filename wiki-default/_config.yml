@@ -1,0 +1,21 @@
+title: LD-Decode Documentation
+description: Documentation for ld-decode and related tools
+theme: jekyll-theme-primer
+
+# Ensure markdown files are processed
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Include all markdown files
+include:
+  - "_*.md"
+  - "*.md"
+
+# Process these file extensions
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
