@@ -69,12 +69,12 @@ jobs:
             
             # Determine correct branch (try master first, then main)
             echo "Pushing to wiki repository..."
-            if git rev-parse --verify master >/dev/null 2>&1; then
+            if git rev-parse --verify origin/master >/dev/null 2>&1; then
               echo "Using master branch"
-              git push origin master
+              git push origin HEAD:master
             else
               echo "Using main branch"
-              git push origin main
+              git push origin HEAD:main
             fi
             
             echo "✓ Wiki synchronized successfully"
