@@ -22,11 +22,11 @@ This can be 2.0 Stereo or 4.0, 5.1 Surround
 
 5.1 Surround
 
-<img src="assets/graphics/ac3_5.1_surround.png" width="130" height="">
+<img src="assets/ac3_5.1_surround.png" width="130" height="">
 
 4.0 Surround
 
-<img src="assets/graphics/surround_4.1.png" width="130" height="">
+<img src="assets/surround_4.1.png" width="130" height="">
 
 
 AC-3 discs take the Right channel analog track area, so Left channel may contain an mono analog audio track.
@@ -42,7 +42,7 @@ You can tell if you're decoding a disc like this by looking at the statistics pr
 ## Dolby DTS Audio 
 
 
-<img src="assets/graphics/dts_5.1.png" width="130" height="">
+<img src="assets/dts_5.1.png" width="130" height="">
 
 
 

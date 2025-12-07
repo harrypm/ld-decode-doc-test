@@ -139,7 +139,7 @@ Windows:
 
 ld-analyse is so awesome and provides so much good information, it needs its [own wiki just to describe it](ld-analyse).
 
-<img src="assets/ld-analyse-rev7/ld-analyse_Main_Window_DAR43.png" width="600" height="">
+<img src="assets/ld-analyse_Main_Window_DAR43.png" width="600" height="">
 
 
 # Drop-out correction

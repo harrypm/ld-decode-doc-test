@@ -1,7 +1,7 @@
 # Domesday Duplicator 
 
 
-<img src="assets/hardware/Domes-Day-Duplicator-Rev3-Trasparent-ver-harrypm.png" width="400" height="">
+<img src="assets/Domes-Day-Duplicator-Rev3-Trasparent-ver-harrypm.png" width="400" height="">
 
 
 The Domesday Duplicator (DdD) is a USB 3.0 hardware solution originally built for capturing LaserDiscs RF at 40msps 10-bit.
@@ -31,7 +31,7 @@ The DdD documentation originally lived on [Domesday86.com project pages](https:/
 ## Physical Gain Control 
 
 
-<img src="assets/hardware/Domes-Day-Duplicator-Rev3-Gain-Dip-Adjustment-harrypm.jpeg" width="300" height="">
+<img src="assets/Domes-Day-Duplicator-Rev3-Gain-Dip-Adjustment-harrypm.jpeg" width="300" height="">
 
 
 0000 is 1-2-3-4 dips, In orientation to bottom numbers.
@@ -69,19 +69,19 @@ The software is a GUI based capture tool, with a serial control interface for La
 [Windows Build](https://drive.google.com/file/d/10Hte6i0k5u6X9hX6CeV31xrPPbA5APJA/view?usp=drivesdk) / [Ubuntu 22.04 Build](https://drive.google.com/file/d/10G9mYrEjb5m0hoBVxnn7At4KffKn2gNZ/view?usp=drivesdk)
 
 
-<img src="assets/hardware/Domes-Day-Duplicator-Capture-App-Live-Capture.gif" width="400" height="">
+<img src="assets/Domes-Day-Duplicator-Capture-App-Live-Capture.gif" width="400" height="">
 
 > [!TIP]  
 > Enable RMS Measurement to have a live readout.
 
 
-<img src="assets/hardware/Domes-Day-Duplicator-Capture-App-Enable-Messurement.png" width="400" height="">
+<img src="assets/Domes-Day-Duplicator-Capture-App-Enable-Messurement.png" width="400" height="">
 
 
 Enable stop captures on sequence mistmach **if your seeing dropped samples with your setup**.
 
 
-<img src="assets/hardware/Domesday-Duplicator_Capture-Page.png" width="400" height="">
+<img src="assets/Domesday-Duplicator_Capture-Page.png" width="400" height="">
 
 
 Dark mode on windows can be done via:

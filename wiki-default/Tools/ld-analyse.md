@@ -38,7 +38,7 @@ Arguments:
 
 To open a TBC file for analysis, click on the File menu and select open
 
-![](assets/ld-analyse-rev7/ld-analyse_Open_TBC_file.png)
+![](assets/ld-analyse_Open_TBC_file.png)
 
 This will display a list of available files filtered by the .tbc extension.  Simply double click on the required TBC file to open it.
 
@@ -50,11 +50,11 @@ Once a TBC file is opened the main window provides a view of the currently selec
 
 When 'Source' is selected the main window displays the raw frame data (which is grey-scale) including both visible and non-visible picture information:
 
-![](assets/ld-analyse-rev7/ld-analyse_Main_Window_source.png)
+![](assets/ld-analyse_Main_Window_source.png)
 
 When 'Chroma' is selected the main window displays the frame data after processing with the chroma-decoder (the chroma-decoder is responsible for processing the raw frame into a colour image):
 
-![](assets/ld-analyse-rev7/ld-analyse_Main_Window_chroma.png)
+![](assets/ld-analyse_Main_Window_chroma.png)
 
 The analyser also allows the source to be viewed in one of three aspect ratios.
 
@@ -62,11 +62,11 @@ The analyser also allows the source to be viewed in one of three aspect ratios.
 
 'DAR 4:3' shows the frame as if the Destination Aspect Ratio was 4:3:
 
-![](assets/ld-analyse-rev7/ld-analyse_Main_Window_DAR43.png)
+![](assets/ld-analyse_Main_Window_DAR43.png)
 
 'DAR 16:9' shows the frame as if the Destination Aspect Ration was 16:9:
 
-![](assets/ld-analyse-rev7/ld-analyse_Main_Window_DAR169.png)
+![](assets/ld-analyse_Main_Window_DAR169.png)
 
 The displayed frame (as source or chroma) is made up of two fields that form alternate 'lines' of the image.  These fields are referred to as 'first' and 'second' fields denoting the order in which they should be interlaced in order to form the desired image.
 
@@ -78,7 +78,7 @@ The order of the field lines can be reversed if required.  Please see the sectio
 
 The decoded frame is made up of several distinct areas.  The following diagram shows the location of the main areas (please see the PAL and NTSC specification documents for more detailed descriptions of the frame contents):
 
-![](assets/ld-analyse-rev7/ld-analyse_Annotated_video_areas.png)
+![](assets/ld-analyse_Annotated_video_areas.png)
 
 * VBI - The Vertical Blanking Interval or VBI is the an area that is used to store general information about the frame/field including time-codes and picture numbers.
 * VITS - Vertical Interval Test Signals are a set of signals designed to assist with testing
@@ -91,13 +91,13 @@ The decoded frame is made up of several distinct areas.  The following diagram s
 
 `ld-process-vbi` can scan for common [SMPTE VITC Timecode](https://github.com/oyvindln/vhs-decode/wiki/VITC-SMPTE-Timecode) and add that to the .JSON files if the data is detected you will see the `HH:MM:SS:FF` readout automatically, this is the exact hour/min/sec/frame information the for current frame displayed at the bottem, typically this is runtime on commercial media or time of day information on prosumer/broadcast tapes.
 
-![](assets/ld-analyse-rev7/ld-analyse_VITC_readout.png)
+![](assets/ld-analyse_VITC_readout.png)
 
 ## Frame navigaion and analysis controls
 
 The most common controls are present on the main window under the frame slider-bar:
 
-![](assets/ld-analyse-rev7/ld-analyse_controls.png)
+![](assets/ld-analyse_controls.png)
 
 The button in left to right order are:
 
@@ -115,7 +115,7 @@ If the source TBC contains chapter numbers the start and end frame buttons will 
 
 Note that clicking on the 'interactive oscilloscope' button opens the line oscilloscope.  When the interactive oscilloscope button is activated it is possible to click in the frame viewer to highlight the required line in the line scope.  It is also possible to click-drag the mouse to interactively display video lines (both in the oscilloscope window and the main window).
 
-![](assets/ld-analyse-rev7/ld-analyse_Oscilloscope.png)
+![](assets/ld-analyse_Oscilloscope.png)
 
 ## Highlight dropouts
 
@@ -123,7 +123,7 @@ Dropouts are temporary losses of signal caused by dirt, damage, scratches or oth
 
 Dropouts are highlighted by clicking on the 'Dropouts Off' button which will then change to 'Dropouts On' (clicking again reverses this action):
 
-![](assets/ld-analyse-rev7/ld-analyse_Highlight_dropouts.png)
+![](assets/ld-analyse_Highlight_dropouts.png)
 
 ## Source selection
 
@@ -139,7 +139,7 @@ If you opened a TBC file produced by vhs-decode, where luma and chroma are store
 
 Some sources are mastered with the expected field order reversed.  This causes ld-analyse to combine the wrong fields and the resulting frame is a mix of two adjacent frames.  Clicking on the 'Normal Field-order' button reverses the displayed field order:
 
-![](assets/ld-analyse-rev7/ld-analyse_Reverse_field_order.png)
+![](assets/ld-analyse_Reverse_field_order.png)
 
 Clicking again on the same button will revert back to normal field order.  Note that switching the field order will cause ld-analyse to return to the first frame of the TBC file.
 
@@ -175,7 +175,7 @@ The view menu contains a number of options used to control the main window's fra
 
 This option zooms into the frame image.  Note: if dropout highlighting is selected, highlighting will also zoom to make it easier to see DO areas.
 
-![](assets/ld-analyse-rev7/ld-analyse_Zoom.png)
+![](assets/ld-analyse_Zoom.png)
 
 ## Zoom out
 
@@ -201,13 +201,13 @@ The Window menu contains a number of options that open additional windows to ass
 
 The dropout analysis window shows a graph of dropouts detected in the whole TBC file.  The dropouts are averaged over multiple fields to simplify the view (the number of fields used per average increases as the total number of fields increases).  The graph shows the dropouts on the X axis (represented by the total length in picture 'dots' of all detected dropouts in the field) and the field number on the Y axis:
 
-![](assets/ld-analyse-rev7/ld-analyse_Dropout_loss_analysis.png)
+![](assets/ld-analyse_Dropout_loss_analysis.png)
 
 ## Visible dropout analysis
 
 The visible dropout analysis shows a similar view to the overall dropout analysis however, on the dropouts in the visible area of a frame are counted:
 
-![](assets/ld-analyse-rev7/ld-analyse_Visible_dropout_loss_analysis.png)
+![](assets/ld-analyse_Visible_dropout_loss_analysis.png)
 
 This view is useful as only dropouts in the visible area will be noticeable to the end-viewer; therefore sources that have less visible dropouts are more desirable that sources with more visible dropouts.
 
@@ -234,13 +234,13 @@ Generally the signal will be quite "flat" profile of SNR per recording segment, 
 
 Generally the signal will be worst at the beginning of a LaserDisc disc (due to the MTF effect on the optics) and then reach a peak quality around frame 15,000.  Some discs exhibit quality loss towards the end of the disc (as this area is most likely damaged by both handling and edge-rot issues).
 
-![](assets/ld-analyse-rev7/ld-analyse_BlackSNR.png)
+![](assets/ld-analyse_BlackSNR.png)
 
 ## White SNR analysis
 
 White SNR signal analysis is similar to black SNR however, the measurement is taken at the white IRE video point rather than the black.  White SNR is a measure of signal quality but is less important (in general) than the black SNR result (since noise at the white level has generally less visible effect on the overall image):
 
-![](assets/ld-analyse-rev7/ld-analyse_WhiteSNR.png)
+![](assets/ld-analyse_WhiteSNR.png)
 
 ## VBI
 
@@ -270,7 +270,7 @@ The original specification VBI tab shows the interpretation of the raw VBI data 
 * Sound mode - Mainly mono, stereo or bilingual (dual-mono)
 * Parity correct - a parity flag for the VBI (programme status part only)
 
-![](assets/ld-analyse-rev7/ld-analyse_VBI_Original.png)
+![](assets/ld-analyse_VBI_Original.png)
 
 ## Amendment 2 specification VBI
 
@@ -284,7 +284,7 @@ The amendment 2 tab shows the VBI according to the amendment 2 version of the La
 * Standard video - True if main content is standard video
 * Sound mode - Mainly mono, stereo or bilingual (dual-mono)
 
-![](assets/ld-analyse-rev7/ld-analyse_VBI_Ammend2.png)
+![](assets/ld-analyse_VBI_Ammend2.png)
 
 ## Line scope
 
@@ -308,23 +308,23 @@ The number of the selected line is shown using the standard line numbering conve
 
 The YC tick-box shows the combined Y (Luminance) and C (Chrominance) values (the combined YC signal is the actual signal present in the original TBC video):
 
-![](assets/ld-analyse-rev6/ld-analyse_osc-yc.png)
+![](assets/ld-analyse_osc-yc.png)
 
 The 'dropouts' tick-box will highlight any drop-outs detected on the line in red (in the YC view).  Unticking this box removes the highlighting:
 
-![](assets/ld-analyse-rev6/ld-analyse_osc-yc-no-do.png)
+![](assets/ld-analyse_osc-yc-no-do.png)
 
 The Y tick-box filters the original signal to present just the Luminance signal:
 
-![](assets/ld-analyse-rev6/ld-analyse_osc_y.png)
+![](assets/ld-analyse_osc_y.png)
 
 The C tick-box filters the original signal to present just the Chrominance signal:
 
-![](assets/ld-analyse-rev6/ld-analyse_osc-c.png)
+![](assets/ld-analyse_osc-c.png)
 
 If you select YC and Y or C, the YC line will dim to allow easier viewing of the sub-signals:
 
-![](assets/ld-analyse-rev6/ld-analyse_osc-all.png)
+![](assets/ld-analyse_osc-all.png)
 
 ## Vectorscope
 
@@ -340,7 +340,7 @@ If your video includes colour bars (or a different test signal with patches of t
 
 The screenshot below shows 75% PAL colour bars on the vectorscope. These are correctly adjusted -- the blobs for the colours land in the centre of the graticule targets:
 
-![](assets/ld-analyse-rev7/ld-analyse_Vectorscope.png)
+![](assets/ld-analyse_Vectorscope.png)
 
 The 'Defocus' checkbox blurs the dots on the display a little; this can be useful if you have a very good-quality source video and the colour blobs are hard to see.
 
@@ -350,13 +350,13 @@ On some NTSC sources closed caption subtitle information is included.  When the 
 
 The closed captions viewer is as follows:
 
-![](assets/ld-analyse-rev7/ld-analyse_ClosedCaptions.png)
+![](assets/ld-analyse_ClosedCaptions.png)
 
 ## Video parameters
 
 The Video Parameters window allows you to adjust some of the metadata for the current TBC file. You can save these parameters back to the TBC's JSON file using 'File > Save JSON'.
 
-![](assets/ld-analyse-rev7/ld-analyse_Video_parameters_NTSC.png)
+![](assets/ld-analyse_Video_parameters_NTSC.png)
 
 ### Black/white level
 
@@ -404,7 +404,7 @@ There are separate tabs for PAL- and NTSC-specific options. In both cases, there
 
 ### PAL
 
-![](assets/ld-analyse-rev7/ld-analyse_ChromaPAL.png)
+![](assets/ld-analyse_ChromaPAL.png)
 
 The 'Chroma filter' radio buttons let you select between three different chroma filters, corresponding to `pal2d`, `transform2d` and `transform3d` at the command line. PalColour is a simple PAL-D decoder, like most monitors, that will give reasonably good results on very poor quality or nonstandard video. The others use the BBC's high-quality Transform PAL algorithm: Transform PAL 2D uses a single field, and Transform PAL 3D uses multiple fields for better quality (but is slower).
 
@@ -416,7 +416,7 @@ Normally the output of Transform PAL is fed through PalColour's PAL-D decoder to
 
 ### NTSC
 
-![](assets/ld-analyse-rev7/ld-analyse_ChromaNTSC.png)
+![](assets/ld-analyse_ChromaNTSC.png)
 
 The 'Chroma filter' radio betters let you choose between three different chroma filters, corresponding to `ntsc1d`, `ntsc2d` and `ntsc3d` at the command line. The 1D decoder is a simple notch filter, producing very poor quality output. The 2D decoder is an adaptive 3-line decoder that uses a heuristic to combine information from adjacent lines within a single field. The 3D decoder uses a heuristic that combines information from lines across five fields. 3D will give the best results, particularly for material like animation that often has repeated content between fields, but it's much slower than 2D.
 

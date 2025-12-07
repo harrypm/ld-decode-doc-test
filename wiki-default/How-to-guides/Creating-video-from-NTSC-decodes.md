@@ -22,11 +22,11 @@ The two most common formats are 59.94i material (commonly called 60i and usually
 
 To identify what kind of material you have, look for an object in motion and examine the lines. If every frame has interlacing, then it is 59.94i.
 
-![59.94i example](assets/ntscguide/60i.gif "59.94i")
+![59.94i example](assets/60i.gif "59.94i")
 
 If there are two frames with interlacing and three without, it is telecined.
 
-![pulldown example](assets/ntscguide/pulldown.gif "Pulldown")
+![pulldown example](assets/pulldown.gif "Pulldown")
 
 If you see no interlacing, it is 29.97p (this is not common).
 
@@ -114,7 +114,7 @@ If there are many messages stating that fields are still interlaced and you see 
 
 Caveat: not all telecined sources are easy to work with. If there was mishandling in the mastering process, there can be blending of fields, which is more difficult to restore. Such sources can be identified by transparent-looking interlace lines. Either treat it as 59.94i material or see the VapourSynth examples below.
 
-![field-blended example](assets/ntscguide/blended.gif "blended")
+![field-blended example](assets/blended.gif "blended")
 
 
 # Advanced Filtering with VapourSynth

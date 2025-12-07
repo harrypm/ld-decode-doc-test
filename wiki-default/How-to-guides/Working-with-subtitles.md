@@ -21,11 +21,11 @@ This will create the required SCC file (this file is readable in any text editor
 ## Converting the SCC file to SRT
 SRT is a format commonly used in tools such as the VLC media player and allows the player to overlay subtitles during video playback:
 
-![](assets/subtitles/vlc_example1.png)
+![](assets/vlc_example1.png)
 
 To convert the SCC format file into SRT (and other common formats) you can use a tool like ttconv.  The tool has an online test page allowing you to upload the SCC file and get a converted SRT in return:
 
-![](assets/subtitles/ttconv_example1.png)
+![](assets/ttconv_example1.png)
 
 This tool is available from [the ttconv github](https://github.com/sandflow/ttconv), the test page is available from [this link](https://ttconv.sandflow.com/)
 

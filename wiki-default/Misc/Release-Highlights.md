@@ -17,7 +17,7 @@ December 2022
 
 ## ld-decode revision 6
 
-![](assets/release-highlights/rev6_release.jpg)
+![](assets/rev6_release.jpg)
 
 December 22nd 2019
 
@@ -39,7 +39,7 @@ December 22nd 2019
 
 ## ld-decode revision 5
 
-![](assets/release-highlights/ldd_rev5.jpg)
+![](assets/ldd_rev5.jpg)
 
 May 19th 2019
 
@@ -57,7 +57,7 @@ May 19th 2019
 
 ## ld-decode revision 4
 
-![](assets/release-highlights/ld-analyse-rev4.png)
+![](assets/ld-analyse-rev4.png)
 
 January 28th 2019
 

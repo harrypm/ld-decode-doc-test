@@ -16,11 +16,11 @@ To determine if disc copies match or not, the mint marks near the spindle of the
 
 In this image, the plastic batch is on top, and the master mark is below it. The "A09" means it is the 9th master plate for side A, and to median stack more copies from plate A09 would be needed.
 
-![Mint marks](assets/medianguide/mintmarks1.jpg "Both Mint marks")
+![Mint marks](assets/mintmarks1.jpg "Both Mint marks")
 
 Here's an example from a scratched-in mark. It's nearly impossible to read even in person, but appears to contain A-2, 2nd master plate for side A.
 
-![Illegible mark](assets/medianguide/mintmarks2.jpg "Illegible master mark")
+![Illegible mark](assets/mintmarks2.jpg "Illegible master mark")
 
 Note: Because discs are made by gluing two sides together, two discs may have matching masters on one side, but differ on the other.
 
@@ -107,9 +107,9 @@ You can change the preview from the median to any individual tbc by changing the
 
 ld-analyse reference tbc, vsedit median preview:
 
-![vsedit preview](assets/medianguide/vsedit_preview.png "vsedit preview")
+![vsedit preview](assets/vsedit_preview.png "vsedit preview")
 
-![ld-analyse preview](assets/medianguide/ld-analyse.png "ld-analyse preview")
+![ld-analyse preview](assets/ld-analyse.png "ld-analyse preview")
 
 Once satisfied, set the bottom line to median.set_output(), save, and close vsedit.
 
