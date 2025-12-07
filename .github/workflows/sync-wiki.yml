@@ -1,0 +1,54 @@
+name: Sync Wiki to .wiki Repository
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wiki-default/**'
+
+jobs:
+  sync-wiki:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout wiki repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync wiki-default to wiki repository
+        run: |
+          # Remove old wiki content (except .git)
+          cd wiki-repo
+          find . -mindepth 1 -not -name '.git' -delete
+          
+          # Copy new content from wiki-default
+          cp -r ../wiki-default/* .
+          
+          # Configure git
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          # Check if there are changes
+          if git status --short | grep -q .; then
+            # Add all changes
+            git add -A
+            
+            # Create commit message with reference to main repo commit
+            git commit -m "Sync wiki from main repo - ${{ github.sha }}"
+            
+            # Push to wiki repository
+            git push origin master
+            
+            echo "✓ Wiki synchronized successfully"
+          else
+            echo "ℹ No changes to sync"
+          fi
