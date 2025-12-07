@@ -24,4 +24,4 @@ ld-decode revision 7 is the current release of the decoder and associated tools.
 
 The tools suite, decoders, and DomesDay Duplicators [capture app](Domesday-Duplicator) now also have self contained builds for [Windows](https://github.com/oyvindln/vhs-decode/Windows-Build), [MacOS](https://github.com/oyvindln/vhs-decode/MacOS-Build) & [Linux](https://github.com/oyvindln/vhs-decode/Linux-Build) bundled alongside with [vhs-decode](https://github.com/oyvindln/vhs-decode/wiki/) (*supports a wide range of tape formats), [cvbs-decode](https://github.com/oyvindln/vhs-decode/wiki/CVBS-Composite-Decode) & [hifi-decode](https://github.com/oyvindln/vhs-decode/hifi-decode) projects.
 
-![](assets/release-highlights/rev6_release.jpg)
+![](assets/release-highlights/rev6_release.jpg)Trigger Pages deployment
